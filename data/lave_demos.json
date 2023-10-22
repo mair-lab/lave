@@ -1,0 +1,130 @@
+[
+    {
+        "question": "What is the color of the car?",
+        "references": ["red", "red", "red", "red", "scarlet"],
+        "prediction": "pink",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because the car is 'red' and not 'pink'.",
+        "caption": "A red car parked on the side of the road."
+    },
+    {
+        "question": "What is the animal on the left?",
+        "references": ["giraffe", "giraffe", "giraffe", "giraffe", "elephant"],
+        "prediction": "giraffe",
+        "output": "3",
+        "explanation": "The candidate answer is correct because most of the reference answers (4 out of 5) indicate the animal on the left is a giraffe.",
+        "caption": "Two giraffes standing in front of their stables."
+    },
+    {
+        "question": "What's the weather like?",
+        "references": ["sunny", "clear", "bright", "sunny", "sunny", "bright and sunny"],
+        "prediction": "cloudy",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because the weather is 'bright' and 'sunny', not cloudy.",
+        "caption": "A stop sign in the middle of the road somewhere."
+    },
+    {
+        "question": "What are the people in the picture doing?",
+        "references": ["sitting", "sitting", "sitting", "sitting"],
+        "prediction": "they are resting",
+        "output": "2",
+        "explanation": "The candidate answer is ambiguous because, while it is common that people who are sitting are resting, it is not always the case.",
+        "caption": "A group of old people sitting on a park bench."
+    },
+    {
+        "question": "What color are the base tiles?",
+        "references": ["beige", "tan", "beige", "tan", "ten", "tan", "brown", "tan", "brown", "beige"],
+        "prediction": "brown",
+        "output": "3",
+        "explanation": "The candidate answer is correct because the reference answers include 'brown' and other similar colors such as 'tan' or 'beige'.",
+        "caption": "A fancy tiled bathroom with with a toilet, a sink and a mirror."
+    },
+    {
+        "question": "How many people are in the picture?",
+        "references": ["three", "three", "three", "two", "four", "two"],
+        "prediction": "a few",
+        "output": "2",
+        "explanation": "The candidate answer is incomplete because 'a few' is less specific than the numerical reference answers.",
+        "caption": "Girls competitively playing frisbee in a green field."
+    },
+    {
+        "question": "What type of fruit is in the picture?",
+        "references": ["apple"],
+        "prediction": "fruit",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because it does not specify the type of fruit.",
+        "caption": "A bowl of fruit with apples and pears."
+    },
+    {
+        "question": "What type of sculpture is this?",
+        "references": ["Horse statue."],
+        "prediction": "horse",
+        "output": "3",
+        "explanation": "The candidate answer is correct because 'horse' is equivalent to 'horse statue' in this context.",
+        "caption": "A brown statue of a horse over a field of yellow flowers."
+    },
+    {
+        "question": "What are the numbers for on the train?",
+        "references": ["5289", "identification", "53893", "identification", "identification", "5389", "53893", "identification", "to identify it", "5389"],
+        "prediction": "numbers",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because it does not provide information about the purpose or motivation of the numbers on the train.",
+        "caption": "A passenger train on the tracks in a station."
+    },
+    {
+        "question": "What is the dog wearing?",
+        "references": ["glasses", "glasses and sweater", "sweater, glasses", "glasses and sweater", "glasses and sweater", "glasses and sweater", "glasses", "shirt", "clothes", "glasses"],
+        "prediction": "sweater",
+        "output": "3",
+        "explanation": "The candidate answer is correct because the reference answers include 'sweater' and other similar clothing items such as 'shirt' or 'clothes'.",
+        "caption": "A dog wearing a sweater and glasses under a book shelf."
+    },
+    {
+        "question": "What are they holding?",
+        "references": ["basketball", "basketball", "basketball", "basketball", "basketball", "basketball", "basketball"],
+        "prediction": "ball",
+        "output": "3",
+        "explanation": "The candidate answer is correct because a basketball is a type of ball.",
+        "caption": "A group of people playing basketball in a gym."
+    },
+    {
+        "question": "What is the man in this picture doing?",
+        "references": ["skateboarding", "skateboarding", "skateboarding", "skateboarding", "skateboarding"],
+        "prediction": "skating",
+        "output": "3",
+        "explanation": "The candidate answer is correct because skating includes skateboarding.",
+        "caption": "A young man is doing a trick on a skateboard."
+    },
+    {
+        "question": "Why are the waves different colors?",
+        "references": ["light", "sand", "they are cresting", "reflection", "light reflection", "refraction", "bubbles", "air", "photo editing"],
+        "prediction": "color",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because it does not explain why the wabes are different colors.",
+        "caption": "A surfer is riding back side on a wave."
+    },
+    {
+        "question": "What kind of train is this?",
+        "references": ["commuter", "subway", "subway", "commuter", "subway", "subway", "subway", "subway"],
+        "prediction": "passenger",
+        "output": "3",
+        "explanation": "The candidate answer is correct because both 'commuter' and 'subway' are types of passsenger train.",
+        "caption": "A passenger train on the tracks in a station."
+    },
+    {
+        "question": "Is this a baby or adult elephant?",
+        "references": ["adult", "baby", "baby", "baby", "adult", "baby", "adult", "baby", "adult", "baby"],
+        "prediction": "adult",
+        "output": "2",
+        "explanation": "The candidate answer is ambiguous because the reference answers are split between 'adult' (4) and 'baby' (6), so it is not clear whether the elephant is an adult or a baby.",
+        "caption": "A small elephant standing next to a tree stump."
+    },
+    {
+        "question": "Is this a backhand or forehand?",
+        "references": ["backhand", "backhand", "backhand", "backhand", "forehand", "forehand", "forehand", "forehand", "backhand", "forehand"],
+        "prediction": "forehand",
+        "output": "2",
+        "explanation": "The candidate answer is ambiguous because the reference answers are split between 'backhand' (5) and 'forehand' (5).",
+        "caption": "The man playing tennis makes a backhanded move."
+    }
+]

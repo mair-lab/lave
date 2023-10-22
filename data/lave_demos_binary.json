@@ -1,0 +1,66 @@
+[
+    {
+        "question": "Is the man wearing skis?",
+        "references": ["yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes"],
+        "prediction": "yes",
+        "output": "3",
+        "explanation": "The candidate answer is correct because all the reference answers indicate the man is wearing skis.",
+        "caption": "A person riding skis down a snow covered slope."
+    },
+    {
+        "question": "Does the boy look happy?",
+        "references": ["yes", "no", "no", "no", "no", "yes", "no", "no", "no", "yes"],
+        "prediction": "smiling",
+        "output": "1",
+        "explanation": "The candidate answer 'smiling' is incorrect because it does not address the binary question, it should be either 'yes' or 'no'.",
+        "caption": "A man looks straight ahead sitting at a desk."
+    },
+    {
+        "question": "Is there a dog in the picture?",
+        "references": ["yes", "no", "yes", "no", "yes", "yes", "no", "yes", "no", "no"],
+        "prediction": "yes",
+        "output": "2",
+        "explanation": "The candidate answer is ambiguous because the reference answers are split between 'yes' (5) and 'no' (5).",
+        "caption": "A park in fall with a small dog hiding in a pile of leaves."
+    },
+    {
+        "question": "Are these bears in their natural habitat?",
+        "references": ["no", "no", "no", "no", "no", "no", "no", "no", "yes", "no"],
+        "prediction": "yes",
+        "output": "1",
+        "explanation": "The candidate answer is incorrect because it contradicts the majority of the reference answers (9 out of 10), which indicate the bears are not in their natural habitat.",
+        "caption": "Three polar bears that are walking in the snow."
+    },
+    {
+        "question": "Is there a mountain in the picture?",
+        "references": ["no", "no", "no", "yes", "no", "yes", "no", "no", "no", "no"],
+        "prediction": "no",
+        "output": "3",
+        "explanation": "The candidate answer is correct because most of the reference answers (8 out of 10) indicate there is no mountain in the picture.",
+        "caption": "A large body of water with a mountain range in the background."
+    },
+    {
+        "question": "Is this a bathroom?",
+        "references": ["yes", "no", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes"],
+        "prediction": "bathroom",
+        "output": "1",
+        "explanation": "The candidate answer 'bathroom' is incorrect because it does not address the binary question, it should be either 'yes' or 'no'.",
+        "caption": "A white toilet sitting under a window on an airplane."
+    },
+    {
+        "question": "Is this where boats are supposed to be?",
+        "references": ["no", "no", "yes", "no", "yes", "no", "no", "yes", "yes", "no"],
+        "prediction": "no",
+        "output": "2",
+        "explanation": "The candidate answer is ambiguous because the reference answers are split between 'yes' (4) and 'no' (6), indicating discrepancy about whether boats are supposed to be there.",
+        "caption": "Large ship washed up ashore on a long stretch of beach."
+    },
+    {
+        "question": "Is the book on the table?",
+        "references": ["yes", "no", "no", "yes", "no", "yes", "yes", "yes", "yes", "yes"],
+        "prediction": "yes",
+        "output": "3",
+        "explanation": "The candidate answer 'yes' is correct because the majority of reference answers (7 out of 10) indicate the book is on the table.",
+        "caption": "A book sitting on a table next to a cup of coffee."
+    }
+]
