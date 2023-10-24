@@ -11,15 +11,13 @@ class LaveFT5(LaveBase):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
         model_name = 'google/flan-t5-xxl'
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = T5ForConditionalGeneration.from_pretrained(model_name, torch_dtype=torch.bfloat16, device_map='auto')
-        self.model.eval().to(self.device)
+        self.model.eval()
     
     def generate(self, prompt: Union[str, List[str]], **generate_kwargs) -> torch.Tensor:
-        encoding = self.tokenizer(prompt, padding='longest', return_tensors='pt').to(self.device)
+        encoding = self.tokenizer(prompt, padding='longest', return_tensors='pt').to(self.model.device)
         if self.debug:
             print(f"Prompt ({encoding.input_ids.size(1)}): {prompt}")
 
@@ -39,7 +37,7 @@ class LaveFT5(LaveBase):
 
     def postprocess(self, output_ids: torch.Tensor) -> List[float]:
         generated_token_id = output_ids[
-            torch.arange(output_ids.size(0), dtype=torch.long, device=self.device),
+            torch.arange(output_ids.size(0), dtype=torch.long, device=output_ids.device),
             (output_ids == self.tokenizer.eos_token_id).float().argmax(dim=1) - 1
         ]
         if self.debug:
