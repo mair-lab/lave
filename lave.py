@@ -6,6 +6,15 @@ from collections import Counter
 
 class LaveBase:
 
+    def compute(self, *args: Any, **kwargs: Any) -> float:
+        raise NotImplementedError
+    
+    def batch_compute(self, *args: Any, **kwargs: Any) -> List[float]:
+        raise NotImplementedError
+
+
+class LaveICLBase(LaveBase):
+
     def __init__(
         self,
         num_shots: int = 8,
@@ -106,9 +115,43 @@ class LaveBase:
         prompt = prompt.strip()
 
         return prompt
+
+
+class LaveSFTBase(LaveBase):
+
+    @staticmethod
+    def get_prompt(question: str, references: List[str], prediction: str) -> str:
+        # return f"### Question: {question}\n### References: {', '.join(references)}\n### Prediction: {prediction}\n### Score:"
+        return f"### Question: {question}\n### References: {', '.join(references)}\n### Prediction: {prediction}\n### Judgment:"
+
+    @staticmethod
+    def get_response_template() -> str:
+        return "\n### Judgment:"
+
+    @staticmethod
+    def formatting_prompts_func(example):
+        texts = []
+        for i in range(len(list(example.values())[0])):
+            prompt = LaveSFTBase.get_prompt(example["question"][i], example["references"][i], example["prediction"][i])
+            score = LaveSFTBase.float2int(example["human_score"][i])
+            label = LaveSFTBase.int2label(score)
+            # text = f"{prompt} {score}"
+            text = f"{prompt} {label}"
+            texts.append(text)
+        return texts
     
-    def compute(self, *args: Any, **kwargs: Any) -> float:
-        raise NotImplementedError
+    @staticmethod
+    def float2int(score: float) -> int:
+        return int(score * 2 + 1)
     
-    def batch_compute(self, *args: Any, **kwargs: Any) -> List[float]:
-        raise NotImplementedError
+    @staticmethod
+    def int2float(score: int) -> float:
+        return (score - 1) / 2
+    
+    @staticmethod
+    def int2label(score: int) -> str:
+        return {1: "incorrect", 2: "ambiguous", 3: "correct"}[score]
+    
+    @staticmethod
+    def label2int(label: str) -> int:
+        return {"incorrect": 1, "ambiguous": 2, "correct": 3}[label]
