@@ -4,10 +4,10 @@ import torch
 from transformers import T5ForConditionalGeneration, AutoTokenizer
 import numpy as np
 
-from lave import LaveBase
+from lave import LaveICLBase
 
 
-class LaveFT5(LaveBase):
+class LaveFT5(LaveICLBase):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)

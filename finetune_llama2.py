@@ -18,7 +18,7 @@ if __name__ == "__main__":
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
     datasets = load_dataset("mair-lab/lave")
-    train_ds = datasets["dev"]
+    train_ds = datasets["dev"].shuffle(seed=42)
     val_ds = datasets["test"]
     assert len(set(train_ds["qid"]) & set(val_ds["qid"])) == 0
 
@@ -75,8 +75,7 @@ if __name__ == "__main__":
             trainable_params += param.numel()
     print(f"trainable params: {trainable_params} || all params: {all_param} || trainable%: {100 * trainable_params / all_param}")
 
-    response_template = "\n### Judgment:"
-    response_template_ids = tokenizer.encode(response_template, add_special_tokens=False)[2:]
+    response_template_ids = tokenizer.encode(LaveSFTBase.get_response_template(), add_special_tokens=False)[2:]
     collator = DataCollatorForCompletionOnlyLM(response_template_ids, tokenizer=tokenizer)
 
     trainer = SFTTrainer(

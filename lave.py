@@ -121,7 +121,6 @@ class LaveSFTBase(LaveBase):
 
     @staticmethod
     def get_prompt(question: str, references: List[str], prediction: str) -> str:
-        # return f"### Question: {question}\n### References: {', '.join(references)}\n### Prediction: {prediction}\n### Score:"
         return f"### Question: {question}\n### References: {', '.join(references)}\n### Prediction: {prediction}\n### Judgment:"
 
     @staticmethod
@@ -135,7 +134,6 @@ class LaveSFTBase(LaveBase):
             prompt = LaveSFTBase.get_prompt(example["question"][i], example["references"][i], example["prediction"][i])
             score = LaveSFTBase.float2int(example["human_score"][i])
             label = LaveSFTBase.int2label(score)
-            # text = f"{prompt} {score}"
             text = f"{prompt} {label}"
             texts.append(text)
         return texts
